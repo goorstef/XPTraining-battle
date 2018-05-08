@@ -1,8 +1,8 @@
 package be.cegeka.battle;
 
-import org.junit.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.Test;
 
 public class SoldierTest {
 
@@ -25,7 +25,7 @@ public class SoldierTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void construction_ASoldierMustHaveAName_CannotBeBlank() {
-        new Soldier("   ");
+        new Soldier("validname   ");
     }
 
 }
