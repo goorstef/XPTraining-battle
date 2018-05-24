@@ -136,12 +136,13 @@ public class ArmyTest {
     public void reportedEnlistmentInList() {
         Headquarters hq = new Headquarters();
         Army reportedArmy = new Army(hq, "reportedArmy");
-        reportedArmy.enrollSoldier(new Soldier("testmanneke"));
+        reportedArmy.enrollSoldier(soldier1);
 
-        Map<String, ArrayList<String>> soldaten = hq.getSoldiers();
-        // .get(hq.getArmies().indexOf("reportedArmy"));
+        Map<String, ArrayList<String>> soldatenPerArmies = hq.getSoldiers();
+        String armyIndex = "" + hq.getArmies().indexOf("reportedArmy");
+        ArrayList<String> soldaatjes = soldatenPerArmies.get(armyIndex);
 
-        // Assertions.assertThat(soldaten).contains(soldier1.getName());
+        Assertions.assertThat(soldaatjes).contains(soldier1.getName());
 
     }
 }

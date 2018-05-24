@@ -23,7 +23,7 @@ public class Army {
     public void enrollSoldier(Soldier soldier) {
         this.soldierList.add(soldier);
         this.assignFrontMan();
-        this.headquarter.ReportEnlistment(soldier.getName(), 1);
+        this.headquarter.ReportEnlistment(soldier.getName(), 0);
     }
 
 
