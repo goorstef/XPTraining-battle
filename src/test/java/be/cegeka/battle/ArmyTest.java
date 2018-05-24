@@ -139,8 +139,7 @@ public class ArmyTest {
         reportedArmy.enrollSoldier(soldier1);
 
         Map<String, ArrayList<String>> soldatenPerArmies = hq.getSoldiers();
-        String armyIndex = "" + hq.getArmies().indexOf("reportedArmy");
-        ArrayList<String> soldaatjes = soldatenPerArmies.get(armyIndex);
+        ArrayList<String> soldaatjes = soldatenPerArmies.get("" + hq.getArmies().indexOf("reportedArmy"));
 
         Assertions.assertThat(soldaatjes).contains(soldier1.getName());
 

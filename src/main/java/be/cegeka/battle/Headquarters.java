@@ -21,7 +21,6 @@ public class Headquarters implements IHeadquarters {
 
     @Override
     public int ReportEnlistment(String soldierName, int armyIdentifier) {
-
         if (soldiers.get("" + armyIdentifier) == null) {
             ArrayList<String> temp = new ArrayList<>();
             temp.add(soldierName);
