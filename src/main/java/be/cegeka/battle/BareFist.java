@@ -7,4 +7,10 @@ public class BareFist extends Weapons {
     public int getDamage() {
         return 1;
     }
+
+    @Override
+    public boolean isHighlyTrainedWeapon() {
+
+        return false;
+    }
 }

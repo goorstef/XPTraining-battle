@@ -1,11 +1,11 @@
 package be.cegeka.battle;
 
 
-public class Axe extends Weapons {
+public class TwoHandedSword extends Weapons {
 
     @Override
     public int getDamage() {
-        return 3;
+        return 5;
     }
 
     @Override
@@ -13,5 +13,4 @@ public class Axe extends Weapons {
 
         return false;
     }
-
 }

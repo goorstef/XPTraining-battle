@@ -1,17 +1,19 @@
 package be.cegeka.battle;
 
 
-public class Axe extends Weapons {
+public class Trident extends Weapons {
+
+    private Weapons spear = new Spear();
 
     @Override
     public int getDamage() {
-        return 3;
+
+        return spear.getDamage() * 3;
     }
 
     @Override
     public boolean isHighlyTrainedWeapon() {
 
-        return false;
+        return true;
     }
-
 }

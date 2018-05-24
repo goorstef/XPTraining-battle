@@ -19,11 +19,17 @@ public class Soldier {
         }
     }
 
-    public Soldier(String name, Weapons weapon) {
+    public Soldier(String name, Weapons weapon, boolean isHighlyTrained) {
         if (this.name == null && name != null && name != "" && StringUtils.isNotBlank(name)) {
             this.name = name;
 
-            this.weapon = weapon;
+
+            if (!isHighlyTrained && weapon.isHighlyTrainedWeapon()) {
+                throw new IllegalArgumentException("Normal soldiers can't have highly trained weapons!");
+            } else {
+                this.weapon = weapon;
+            }
+
 
         } else {
             throw new IllegalArgumentException("Soldier already has a name!");

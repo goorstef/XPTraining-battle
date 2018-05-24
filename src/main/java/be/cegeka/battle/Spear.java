@@ -7,4 +7,10 @@ public class Spear extends Weapons {
     public int getDamage() {
         return 2;
     }
+
+    @Override
+    public boolean isHighlyTrainedWeapon() {
+
+        return false;
+    }
 }

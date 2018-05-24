@@ -1,17 +1,16 @@
 package be.cegeka.battle;
 
 
-public class Axe extends Weapons {
+public class MagicPotion extends Weapons {
 
     @Override
     public int getDamage() {
-        return 3;
+        return 10;
     }
 
     @Override
     public boolean isHighlyTrainedWeapon() {
 
-        return false;
+        return true;
     }
-
 }
