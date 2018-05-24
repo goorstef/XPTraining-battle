@@ -1,18 +1,18 @@
 package be.cegeka.battle;
 
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
-
-import org.apache.commons.lang3.Validate;
+import org.apache.commons.lang3.StringUtils;
 
 public class Soldier {
 
     private String name;
 
     public Soldier(String name) {
-        Validate.isTrue(isNotBlank(name));
+        if (this.name == null && name != null && name != "" && StringUtils.isNotBlank(name)) {
+            this.name = name;
+        } else {
+            throw new IllegalArgumentException("Soldier already has a name!");
+        }
 
-
-        this.name = name;
     }
 
     String getName() {
