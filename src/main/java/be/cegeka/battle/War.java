@@ -37,12 +37,15 @@ public class War {
 
     private void fightFrontMan() {
 
-        while (!attacker.getSoldierList().isEmpty() && !defender.getSoldierList().isEmpty()) {
+        while (alsAttackerEnDefenderLijstNietLeegZijn()) {
+            Soldier verlorenSoldaat = attacker.getFrontMan().Fight(defender.getFrontMan());
 
-            // voorwaarden wie wint of verliest
-            defender.removeFrontMan();
+            if (attacker.getSoldierList().contains(verlorenSoldaat)) {
+                attacker.removeFrontMan();
+            } else {
+                defender.removeFrontMan();
+            }
         }
-
 
         if (attacker.getSoldierList().size() == 0) {
             defender.reportVictory();
@@ -51,6 +54,11 @@ public class War {
         }
 
 
+    }
+
+
+    private boolean alsAttackerEnDefenderLijstNietLeegZijn() {
+        return !attacker.getSoldierList().isEmpty() && !defender.getSoldierList().isEmpty();
     }
 
 

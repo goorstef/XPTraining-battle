@@ -2,6 +2,9 @@ package be.cegeka.battle;
 
 import static org.mockito.Mockito.verify;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
@@ -89,7 +92,7 @@ public class ArmyTest {
     public void enlistedSoldierGetsIdTest() {
         Army armyTest = new Army(headquarterMock, "armyTest");
         Soldier soldaat = new Soldier("Dummy");
-        Mockito.when(headquarterMock.ReportEnlistment(soldaat.getName())).thenReturn(1);
+        Mockito.when(headquarterMock.ReportEnlistment(soldaat.getName(), 1)).thenReturn(1);
         armyTest.enrollSoldier(soldaat);
 
     }
@@ -108,7 +111,7 @@ public class ArmyTest {
         enemy.removeFrontMan();
         War war = new War(army, enemy);
 
-        verify(headquarterMock).ReportVictory(2);
+        verify(headquarterMock).ReportVictory(2, 1);
 
     }
 
@@ -117,6 +120,28 @@ public class ArmyTest {
         Army armyTest = new Army(headquarterMock, "armyTest");
 
         Mockito.when(headquarterMock.ReportArmy(armyTest.getNaam())).thenReturn(1);
+
+    }
+
+    @Test
+    public void reportArmyIsInList() {
+        Headquarters hq = new Headquarters();
+        Army reportedArmy = new Army(hq, "reportedArmy");
+
+
+        Assertions.assertThat(hq.getArmies()).contains("reportedArmy");
+    }
+
+    @Test
+    public void reportedEnlistmentInList() {
+        Headquarters hq = new Headquarters();
+        Army reportedArmy = new Army(hq, "reportedArmy");
+        reportedArmy.enrollSoldier(new Soldier("testmanneke"));
+
+        Map<String, ArrayList<String>> soldaten = hq.getSoldiers();
+        // .get(hq.getArmies().indexOf("reportedArmy"));
+
+        // Assertions.assertThat(soldaten).contains(soldier1.getName());
 
     }
 }
