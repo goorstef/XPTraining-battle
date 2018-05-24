@@ -89,4 +89,23 @@ public class SoldierTest {
         Soldier loser = attacker.Fight(defender);
         assertThat(loser).isEqualTo(defender);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void construction_SoldierWithHighlyTrainedWeapon_NotHighlyTrained() {
+        Weapons weapon = new Trident();
+        Soldier soldier = new Soldier("Henk", weapon, false);
+        assertThat(soldier.getWeapon()).isEqualTo(weapon);
+    }
+
+    @Test
+    public void construction_2DifferentSoldiersMagicPotionAndSword_MagicPotionWins() {
+        Weapons weaponAttacker = new MagicPotion();
+        Soldier attacker = new Soldier("Henk", weaponAttacker, true);
+
+        Weapons weaponDefender = new Sword();
+        Soldier defender = new Soldier("Jef", weaponDefender, false);
+
+        Soldier loser = attacker.Fight(defender);
+        assertThat(loser).isEqualTo(defender);
+    }
 }

@@ -48,6 +48,14 @@ public class Soldier {
         int damageAttacker = this.weapon.getDamage();
         int damageDefender = soldier.weapon.getDamage();
 
+        MagicPotion m = new MagicPotion();
+        m.setDamage(damageDefender);
+        damageAttacker = this.weapon.getDamage();
+
+        MagicPotion m2 = new MagicPotion();
+        m2.setDamage(damageAttacker);
+        damageDefender = soldier.weapon.getDamage();
+
         if (damageAttacker >= damageDefender) {
             return soldier;
         } else {
